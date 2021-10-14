@@ -1,3 +1,4 @@
+from PyQt5.QtWidgets import QPlainTextEdit
 from toolbox.ui import UI
 from encoder import inference as encoder
 from synthesizer.inference import Synthesizer
@@ -9,6 +10,7 @@ import numpy as np
 import traceback
 import sys
 import torch
+import speech_recognition as sr
 import librosa
 from audioread.exceptions import NoBackendError
 
@@ -119,6 +121,7 @@ class Toolbox:
         # Generation
         func = lambda: self.synthesize() or self.vocode()
         self.ui.generate_button.clicked.connect(func)
+        self.ui.speech_button.clicked.connect(self.speech)
         self.ui.synthesize_button.clicked.connect(self.synthesize)
         self.ui.vocode_button.clicked.connect(self.vocode)
         self.ui.random_seed_checkbox.clicked.connect(self.update_seed_textbox)
@@ -202,6 +205,25 @@ class Toolbox:
     def clear_utterances(self):
         self.utterances.clear()
         self.ui.draw_umap_projections(self.utterances)
+
+    # FRESH CODE, Bryan Was Here
+    def speech(self):
+        self.ui.log("Speak...")
+
+        # Create a speech recognition object
+        r = sr.Recognizer()
+
+        # Convert audio from microphone to text
+        with sr.Microphone() as source: 
+            # Read audio data from default microphone
+            print("Speak...")
+            audio_data = r.record(source, duration=5)
+            print("Processing...")
+
+            # Convert to text
+            text = r.recognize_google(audio_data, language='en')
+            self.ui.text_prompt = QPlainTextEdit(text)
+            #print(text)
         
     def synthesize(self):
         self.ui.log("Generating the mel spectrogram...")

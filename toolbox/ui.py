@@ -359,6 +359,7 @@ class UI(QDialog):
         self.play_button.setDisabled(False)
         self.generate_button.setDisabled(False)
         self.synthesize_button.setDisabled(False)
+        self.speech_button.setDisabled(False)
 
     def log(self, line, mode="newline"):
         if mode == "newline":
@@ -408,6 +409,7 @@ class UI(QDialog):
         self.draw_umap_projections(set())
         self.set_loading(0)
         self.play_button.setDisabled(True)
+        self.speech_button.setDisabled(False)
         self.generate_button.setDisabled(True)
         self.synthesize_button.setDisabled(True)
         self.vocode_button.setDisabled(True)
@@ -555,6 +557,9 @@ class UI(QDialog):
         ## Generation
         self.text_prompt = QPlainTextEdit(default_text)
         gen_layout.addWidget(self.text_prompt, stretch=1)
+
+        self.speech_button = QPushButton("Speak")
+        gen_layout.addWidget(self.speech_button)
         
         self.generate_button = QPushButton("Synthesize and vocode")
         gen_layout.addWidget(self.generate_button)
