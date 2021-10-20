@@ -501,7 +501,6 @@ class UI(QDialog):
         browser_layout.addWidget(self.stop_button, 2, 2)
         # i += 1
 
-
         # Model and audio output selection
         self.encoder_box = QComboBox()
         # browser_layout.addWidget(QLabel("<b>Encoder</b>"), i, 0)
@@ -556,19 +555,19 @@ class UI(QDialog):
         
         ## Generation
         self.text_prompt = QPlainTextEdit(default_text)
-        gen_layout.addWidget(self.text_prompt, stretch=1)
+        # gen_layout.addWidget(self.text_prompt, stretch=1)
 
         self.speech_button = QPushButton("Speak")
         gen_layout.addWidget(self.speech_button)
         
-        self.generate_button = QPushButton("Synthesize and vocode")
+        self.generate_button = QPushButton("Play")
         gen_layout.addWidget(self.generate_button)
         
         layout = QHBoxLayout()
         self.synthesize_button = QPushButton("Synthesize only")
-        layout.addWidget(self.synthesize_button)
+        # layout.addWidget(self.synthesize_button)
         self.vocode_button = QPushButton("Vocode only")
-        layout.addWidget(self.vocode_button)
+        # layout.addWidget(self.vocode_button)
         gen_layout.addLayout(layout)
 
         layout_seed = QGridLayout()
@@ -597,7 +596,7 @@ class UI(QDialog):
         ## Set the size of the window and of the elements
         # max_size = QDesktopWidget().availableGeometry(self).size() * 0.3
         # self.resize(max_size)
-        self.setFixedSize(QSize(500,500))
+        self.setFixedSize(QSize(300,200))
         
         ## Finalize the display
         self.reset_interface()
