@@ -418,11 +418,10 @@ class UI(QDialog):
         [self.log("") for _ in range(self.max_log_lines)]
 
     def keyPressEvent(self, event):
-        if event.key() == Qt.Key_Space:
-            self.test_method(self)
-    
-    def test_method(self):
-        print('Space key Pressed')
+        print(event.text())
+        # if event.key() == Qt.Key_CapsLock:
+        #     print('Space key Pressed 2')
+            # self.test_method(self)
 
     def __init__(self):
         ## Initialize the application
@@ -560,7 +559,7 @@ class UI(QDialog):
         
         
         ## Generation
-        self.text_prompt = QPlainTextEdit(default_text)
+        # self.text_prompt = QPlainTextEdit(default_text)
         # gen_layout.addWidget(self.text_prompt, stretch=1)
 
         self.speech_button = QPushButton("Speak")
