@@ -10,6 +10,7 @@ from typing import List, Set
 import sounddevice as sd
 import soundfile as sf
 import numpy as np
+import speech_recognition as sr
 # from sklearn.manifold import TSNE         # You can try with TSNE if you like, I prefer UMAP 
 from time import sleep
 import umap
@@ -418,10 +419,19 @@ class UI(QDialog):
         [self.log("") for _ in range(self.max_log_lines)]
 
     def keyPressEvent(self, event):
-        print(event.text())
-        # if event.key() == Qt.Key_CapsLock:
-        #     print('Space key Pressed 2')
-            # self.test_method(self)
+        if event.key() == Qt.Key_CapsLock:
+            r = sr.Recognizer()
+            with sr.Microphone() as source: 
+            # Read audio data from default microphone
+                print("Speak...")
+                audio_data = r.record(source, duration=5)
+                print("Processing...")
+
+            # Convert to text
+                text = r.recognize_google(audio_data, language='en')
+                # self.ui.text_prompt = QPlainTextEdit(text)
+                self.text_prompt = QPlainTextEdit(text)
+                # self.test_method(self)
 
     def __init__(self):
         ## Initialize the application
