@@ -417,12 +417,18 @@ class UI(QDialog):
         self.export_wav_button.setDisabled(True)
         [self.log("") for _ in range(self.max_log_lines)]
 
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Space:
+            self.test_method(self)
+    
+    def test_method(self):
+        print('Space key Pressed')
+
     def __init__(self):
         ## Initialize the application
         self.app = QApplication(sys.argv)
         super().__init__(None)
         self.setWindowTitle("Mimicu")
-        
         
         ## Main layouts
         # Root
