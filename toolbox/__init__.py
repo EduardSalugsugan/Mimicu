@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QPlainTextEdit
+from PyQt5.QtCore import QSize, Qt, QStringListModel
 from toolbox.ui import UI
 from encoder import inference as encoder
 from synthesizer.inference import Synthesizer

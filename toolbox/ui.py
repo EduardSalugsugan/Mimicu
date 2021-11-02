@@ -7,6 +7,7 @@ from encoder.inference import plot_embedding_as_heatmap
 from toolbox.utterance import Utterance
 from pathlib import Path
 from typing import List, Set
+from synthesizer.inference import Synthesizer
 import sounddevice as sd
 import soundfile as sf
 import numpy as np
@@ -426,12 +427,9 @@ class UI(QDialog):
                 print("Speak...")
                 audio_data = r.record(source, duration=5)
                 print("Processing...")
-
             # Convert to text
                 text = r.recognize_google(audio_data, language='en')
-                # self.ui.text_prompt = QPlainTextEdit(text)
                 self.text_prompt = QPlainTextEdit(text)
-                # self.test_method(self)
 
     def __init__(self):
         ## Initialize the application
