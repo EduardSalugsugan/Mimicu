@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QPlainTextEdit
 from PyQt5.QtCore import QSize, Qt, QStringListModel
+from PyQt5.Qt import Qt
 from toolbox.ui import UI
 from encoder import inference as encoder
 from synthesizer.inference import Synthesizer
@@ -225,7 +226,7 @@ class Toolbox:
             text = r.recognize_google(audio_data, language='en')
             self.ui.text_prompt = QPlainTextEdit(text)
             #print(text)
-        
+
     def synthesize(self):
         self.ui.log("Generating the mel spectrogram...")
         self.ui.set_loading(1)

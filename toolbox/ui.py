@@ -1,3 +1,4 @@
+from re import S
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -7,7 +8,6 @@ from encoder.inference import plot_embedding_as_heatmap
 from toolbox.utterance import Utterance
 from pathlib import Path
 from typing import List, Set
-from synthesizer.inference import Synthesizer
 import sounddevice as sd
 import soundfile as sf
 import numpy as np
@@ -420,16 +420,18 @@ class UI(QDialog):
         [self.log("") for _ in range(self.max_log_lines)]
 
     def keyPressEvent(self, event):
-        if event.key() == Qt.Key_CapsLock:
-            r = sr.Recognizer()
-            with sr.Microphone() as source: 
-            # Read audio data from default microphone
-                print("Speak...")
-                audio_data = r.record(source, duration=5)
-                print("Processing...")
-            # Convert to text
-                text = r.recognize_google(audio_data, language='en')
-                self.text_prompt = QPlainTextEdit(text)
+        print(event.text() + " ")
+        # if event.key() == Qt.Key_CapsLock:
+        #     r = sr.Recognizer()
+        #     with sr.Microphone() as source: 
+        #     # Read audio data from default microphone
+        #         print("Speak...")
+        #         audio_data = r.record(source, duration=5)
+        #         print("Processing...")
+        #     # Convert to text
+        #         text = r.recognize_google(audio_data, language='en')
+        #         self.text_prompt = QPlainTextEdit(text)
+        #     self.generate_button.animateClick()
 
     def __init__(self):
         ## Initialize the application
