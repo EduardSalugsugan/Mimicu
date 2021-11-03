@@ -420,18 +420,17 @@ class UI(QDialog):
         [self.log("") for _ in range(self.max_log_lines)]
 
     def keyPressEvent(self, event):
-        print(event.text() + " ")
-        # if event.key() == Qt.Key_CapsLock:
-        #     r = sr.Recognizer()
-        #     with sr.Microphone() as source: 
-        #     # Read audio data from default microphone
-        #         print("Speak...")
-        #         audio_data = r.record(source, duration=5)
-        #         print("Processing...")
-        #     # Convert to text
-        #         text = r.recognize_google(audio_data, language='en')
-        #         self.text_prompt = QPlainTextEdit(text)
-        #     self.generate_button.animateClick()
+        if event.key() == Qt.Key_CapsLock:
+            r = sr.Recognizer()
+            with sr.Microphone() as source: 
+            # Read audio data from default microphone
+                print("Speak...")
+                audio_data = r.record(source, duration=5)
+                print("Processing...")
+            # Convert to text
+                text = r.recognize_google(audio_data, language='en')
+                self.text_prompt = QPlainTextEdit(text)
+            self.generate_button.animateClick()
 
     def __init__(self):
         ## Initialize the application
