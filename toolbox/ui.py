@@ -45,6 +45,7 @@ class UI(QDialog):
     min_umap_points = 4
     max_log_lines = 5
     max_saved_utterances = 20
+    keyname = "CapsLock"
     
     def draw_utterance(self, utterance: Utterance, which):
         self.draw_spec(utterance.spec, which)
