@@ -420,6 +420,7 @@ class UI(QDialog):
         self.export_wav_button.setDisabled(True)
         [self.log("") for _ in range(self.max_log_lines)]
 
+    # Code block for the keybinding for push to talk.
     def keyPressEvent(self, event):
         if event.key() == Qt.Key_CapsLock:
             r = sr.Recognizer()
