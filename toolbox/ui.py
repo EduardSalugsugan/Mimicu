@@ -17,6 +17,7 @@ from time import sleep
 import umap
 import sys
 from warnings import filterwarnings, warn
+from playsound import playsound
 filterwarnings("ignore")
 
 
@@ -427,6 +428,11 @@ class UI(QDialog):
             with sr.Microphone() as source: 
             # Read audio data from default microphone
                 print("Speak...")
+
+                # Audio cue code
+                playsound('C:\Real-Time-Voice-Cloning-master\\beep.mp3')
+                # End of 
+
                 audio_data = r.record(source, duration=5)
                 print("Processing...")
             # Convert to text
