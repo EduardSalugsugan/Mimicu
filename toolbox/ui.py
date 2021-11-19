@@ -580,10 +580,10 @@ class UI(QDialog):
         # gen_layout.addWidget(self.text_prompt, stretch=1)
 
         self.speech_button = QPushButton("Speak")
-        gen_layout.addWidget(self.speech_button)
+        #gen_layout.addWidget(self.speech_button)
         
         self.generate_button = QPushButton("Play")
-        gen_layout.addWidget(self.generate_button)
+        #gen_layout.addWidget(self.generate_button)
         
         layout = QHBoxLayout()
         self.synthesize_button = QPushButton("Synthesize only")
@@ -605,7 +605,9 @@ class UI(QDialog):
         # layout_seed.addWidget(self.trim_silences_checkbox, 0, 2, 1, 2)
         # gen_layout.addLayout(layout_seed)
 
+        self.label = QLabel("Progress:")
         self.loading_bar = QProgressBar()
+        gen_layout.addWidget(self.label)
         gen_layout.addWidget(self.loading_bar)
         
         self.log_window = QLabel()
