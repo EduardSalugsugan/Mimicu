@@ -12,7 +12,7 @@ CHANNELS = 2
 RATE = 44100
 RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = "output.wav"
-
+TEXT = ""
 p = pyaudio.PyAudio()
 frames = []
 
@@ -74,8 +74,9 @@ def recorder():
         r = sr.Recognizer()
         with output as source:
             audio = r.record(source)
-            text = r.recognize_google(audio, language = 'en')
-            print(text)
+            TEXT = r.recognize_google(audio, language = 'en')
+            print(TEXT)
+            return TEXT
         sys.exit()
     # Reschedule the recorder function in 100 ms.
     task.enter(0.1, 1, recorder, ())

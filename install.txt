@@ -1,0 +1,12 @@
+pip install pyqt5
+pip install matplotlib
+pip install scipy
+pip install sklearn
+pip install librosa
+pip install sounddevice
+pip install speechrecognition
+pip install umap
+pip install playsound
+pip install unidecode
+pip install inflect
+pip install webrtcvad-wheels
