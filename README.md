@@ -1,5 +1,8 @@
 ### Setup
 
+### NOTE: THE REAL-TIME VOICE CLONING ALGORITHM IS NOT MADE BY US BUT BY https://github.com/CorentinJ
+### THE PROJECT IS MEANT TO BE A FUN LITTLE PRANK WITH FRIENDS BY MIMICKING YOUR OWN VOICE WITH THERE'S.
+
 ### 1. Install Requirements
 
 **Python 3.6 or 3.7** is needed to run the toolbox.
